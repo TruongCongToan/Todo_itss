@@ -1,6 +1,4 @@
-import React from 'react'
-
-/* スタイルシート */
+import React from 'react';
 import './styles/main.css';
 
 /* コンポーネント */
