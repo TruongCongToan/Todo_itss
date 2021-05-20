@@ -1,34 +1,30 @@
-/* 
-  【Filterコンポーネント】
-　・該当するTodoをステータス毎にで分けてリスト表示する
-　・タブで表示する
-　・サポートするステータスは「すべて」「未完了」「完了済み」
-*/
-function Filter({ value, onChange }) {
-
-  const handleClick = (key, e) => {
-    e.preventDefault();
-    onChange(key);
+function Filter({ filterMode, handleFilter }) {
+  const handleClick = (keyFilterMode, event) => {
+    event.preventDefault();
+    if (keyFilterMode !== filterMode) handleFilter(keyFilterMode);
   };
 
   return (
     <div className="panel-tabs">
-      <a
-        href="#"
+      <button
         onClick={handleClick.bind(null, 'ALL')}
-        className={value === 'ALL' ?  'is-active' : ''}
-      >全て</a>
-      <a
-        href="#"
+        className={filterMode === 'ALL' ? 'is-active' : null}
+      >
+        全て
+      </button>
+      <button
         onClick={handleClick.bind(null, 'TODO')}
-        className={value === 'TODO' ?  'is-active' : ''}
-      >未完了</a>
-      <a
-        href="#"
+        className={filterMode === 'TODO' ? 'is-active' : null}
+      >
+        未完了
+      </button>
+      <button
         onClick={handleClick.bind(null, 'DONE')}
-        className={value === 'DONE' ?  'is-active' : ''}
-      >完了済み</a>
+        className={filterMode === 'DONE' ? 'is-active' : null}
+      >
+        完了済み
+      </button>
     </div>
   );
 }
-export default Filter
+export default Filter;

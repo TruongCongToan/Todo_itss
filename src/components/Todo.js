@@ -4,17 +4,19 @@ import Input from './Input';
 import Filter from './Filter';
 import useStorage from '../hooks/storage';
 import { getKey } from '../lib/util';
-
 function Todo() {
   const [items, putItems, clearItems] = useStorage();
-
   const [filterMode, setFilterMode] = useState('ALL');
 
   const displayItems = items.filter((item) => {
-    if (filterMode === 'ALL') return true;
-    if (filterMode === 'TODO') return !item.done;
-    if (filterMode === 'DONE') return item.done;
+    let result;
+    if (filterMode === 'ALL') result = true;
+    if (filterMode === 'TODO') result = !item.done;
+    if (filterMode === 'DONE') result = item.done;
+
+    return result;
   });
+
   const handleCheck = (itemKey) => {
     const newItems = items.map((item) => {
       if (item.key === itemKey) {
@@ -34,11 +36,9 @@ function Todo() {
   const handleFilter = (keyFilterMode) => {
     setFilterMode(keyFilterMode);
   };
-
   const handleDeleteTodo = () => {
     clearItems();
   };
-
   return (
     <div className="panel">
       <div className="panel-heading">ITSS ToDoアプリ</div>
