@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 
-function Input({ handleAddNewTodo }) {
-  const [text, setText] = useState('');
+function Input( { onAdd } ) {
+  const [text, setText] = React.useState('');
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
+  const handleChange = e => setText(e.target.value);
 
-  const handleOnKeyDown = (event) => {
-    if (event.keyCode === 13) {
-      handleAddNewTodo(text);
+  const handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      onAdd(text);
       setText('');
     }
   };
@@ -22,7 +20,7 @@ function Input({ handleAddNewTodo }) {
         placeholder="Todoを入力してください"
         value={text}
         onChange={handleChange}
-        onKeyDown={handleOnKeyDown}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );

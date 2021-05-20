@@ -1,30 +1,29 @@
-function Filter({ filterMode, handleFilter }) {
-  const handleClick = (keyFilterMode, event) => {
-    event.preventDefault();
-    if (keyFilterMode !== filterMode) handleFilter(keyFilterMode);
+function Filter({ value, onChange }) {
+
+  const handleClick = (key, e) => {
+    e.preventDefault();
+    onChange(key);
   };
 
   return (
     <div className="panel-tabs">
-      <button
+      <a
+        href="#abc"
         onClick={handleClick.bind(null, 'ALL')}
-        className={filterMode === 'ALL' ? 'is-active' : null}
-      >
-        全て
-      </button>
-      <button
+        className={value === 'ALL' ?  'is-active' : ''}
+      >全て</a>
+      <a
+        href="#abc"
         onClick={handleClick.bind(null, 'TODO')}
-        className={filterMode === 'TODO' ? 'is-active' : null}
-      >
-        未完了
-      </button>
-      <button
+        className={value === 'TODO' ?  'is-active' : ''}
+      >未完了</a>
+      <a
+        href="#abc"
         onClick={handleClick.bind(null, 'DONE')}
-        className={filterMode === 'DONE' ? 'is-active' : null}
-      >
-        完了済み
-      </button>
+        className={value === 'DONE' ?  'is-active' : ''}
+      >完了済み</a>
     </div>
   );
 }
-export default Filter;
+
+export default Filter

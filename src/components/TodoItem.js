@@ -1,14 +1,15 @@
-import React from 'react';
-
-function TodoItem({ item, handleCheck }) {
+function TodoItem({ item, onCheck }) {
+  const handleChange = () => {
+    onCheck(item);
+  }
   return (
     <label className="panel-block">
       <input
         type="checkbox"
-        onChange={() => handleCheck(item.key)}
-        defaultChecked={item.done}
+        checked={item.done}
+        onChange={handleChange}
       />
-      <span className={item.done ? 'has-text-grey-light' : null}>
+      <span className={item.done ? 'has-text-grey-light' : ''}>
         {item.text}
       </span>
     </label>

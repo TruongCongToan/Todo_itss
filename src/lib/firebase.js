@@ -1,5 +1,5 @@
 
-import firebase from "firebase/app";
+import firebase from "firebase";
 import '@firebase/firestore'
 require("firebase/auth");
 // Firebase configuration
@@ -11,7 +11,7 @@ const firebaseConfig = {
   messagingSenderId: "296361025396",
   appId: "1:296361025396:web:bc91a4f625280f38ec1621"
 };
-// Initialize Firebase
+// Initialize Firebasesdwad
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
@@ -95,14 +95,14 @@ export const updateUser = async (user, image) => {
   }
 }
 
-export const uploadImage = async (image) => {
-  const ref = firebase.storage().ref().child(`/images/${image.name}`);
-  let downloadUrl = "";
-  try {
-    await ref.put(image);
-    downloadUrl = await ref.getDownloadURL();
-  } catch (err) {
-    console.log(err);
-  }
-  return downloadUrl;
-};
+// export const uploadImage = async (image) => {
+//   const ref = firebase.storage().ref().child(`/images/${image.name}`);
+//   let downloadUrl = "";
+//   try {
+//     await ref.put(image);
+//     downloadUrl = await ref.getDownloadURL();
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   return downloadUrl;
+// };
