@@ -1,4 +1,5 @@
 import React from 'react';
+
 function TodoItem({ item, handleCheck }) {
   return (
     <label className="panel-block">
@@ -13,4 +14,5 @@ function TodoItem({ item, handleCheck }) {
     </label>
   );
 }
+
 export default TodoItem;

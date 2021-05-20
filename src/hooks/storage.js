@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 const STORAGE_KEY = 'itss-todo';
 
 function useStorage() {
@@ -28,4 +29,5 @@ function useStorage() {
 
   return [items, putItems, clearItems];
 }
+
 export default useStorage;
