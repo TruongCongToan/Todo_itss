@@ -3,7 +3,14 @@ import firebase from "firebase";
 import '@firebase/firestore'
 require("firebase/auth");
 // Firebase configuration
-
+const firebaseConfig = {
+  apiKey: "AIzaSyCLmI78hN3yWBhfLwLA1FeiaYz8KDSd8Yw",
+  authDomain: "example-1e43a.firebaseapp.com",
+  projectId: "example-1e43a",
+  storageBucket: "example-1e43a.appspot.com",
+  messagingSenderId: "367822283289",
+  appId: "1:367822283289:web:06b1f9183a8210879cc088"
+};
 // Initialize Firebasesdwad
 firebase.initializeApp(firebaseConfig);
 
